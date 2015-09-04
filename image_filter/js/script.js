@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  imageSource = "img/72H.jpg";
+  // imageSource = "img/72H.jpg";
   var filterList = $("div.filter-list");
   var filters = ["Original"].concat(Object.keys($.filterMe.filters));
   $.each(filters, function(index, filter) {
