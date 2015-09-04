@@ -6,9 +6,9 @@ $(document).ready(function() {
     filterList.append(filterElement);
   });
   $("a.filter-option").click(function() {
-    $("img.filter").attr({"src": "img/72H.jpg", "data-filter": ""});
+    var img = $("<img>").attr({"src": "img/72H.jpg", "data-filter": ""}).addClass("img-responsive filter");
+    $("div.img-wrapper").html(img);
     var option = (this.text === "Original") ? "" : this.text;
-    console.log(option);
     $(".filter").attr("data-filter", option);
     $(".filter").filterMe();
   });
