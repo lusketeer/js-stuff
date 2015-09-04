@@ -6,7 +6,9 @@ $(document).ready(function() {
     filterList.append(filterElement);
   });
   $("a.filter-option").click(function() {
-    var option = this.text;
+    $("img.filter").attr({"src": "img/72H.jpg", "data-filter": ""});
+    var option = (this.text === "Original") ? "" : this.text;
+    console.log(option);
     $(".filter").attr("data-filter", option);
     $(".filter").filterMe();
   });
