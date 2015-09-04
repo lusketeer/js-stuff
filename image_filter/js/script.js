@@ -13,7 +13,7 @@ $(document).ready(function() {
     $("a.filter-option").click(function() {
       var img = $("<img>").attr({"src": "img/72H.jpg", "data-filter": ""}).addClass("img-responsive filter");
       $("div.img-wrapper").html(img);
-      var option = $(this).attr("data-filter");
+      var option = $(this).children("img").attr("data-filter");
       $(".filter").attr("data-filter", option);
       $(".filter").filterMe();
     });
