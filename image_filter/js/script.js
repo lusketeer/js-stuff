@@ -18,7 +18,8 @@ $(document).ready(function() {
     } else {
       imageSource = "img/72H.jpg";
     }
-    imageReload()
+    // imageReload()
+    $("img.filter").attr("src", imageSource);
   });
 
   setTimeout(function() {
