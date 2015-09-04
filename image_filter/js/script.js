@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  imageSource = "img/72H.jpg";
   var filterList = $("div.filter-list");
   var filters = ["Original"].concat(Object.keys($.filterMe.filters));
   $.each(filters, function(index, filter) {
@@ -9,13 +10,26 @@ $(document).ready(function() {
     // var filterElement = $("<a>").addClass("filter-option btn btn-success col-sm-4").html(filter);
     filterList.append(filterWrapper);
   });
+
+  $("button.load").click(function() {
+    var newImageUrl = $("input.image-url").val();
+    if (newImageUrl !== "") {
+      imageSource = newImageUrl;
+    }
+    imageReload()
+  });
+
   setTimeout(function() {
     $("a.filter-option").click(function() {
-      var img = $("<img>").attr({"src": "img/72H.jpg", "data-filter": ""}).addClass("img-responsive filter");
-      $("div.img-wrapper").html(img);
+      imageReload()
       var option = $(this).children("img").attr("data-filter");
       $(".filter").attr("data-filter", option);
       $(".filter").filterMe();
     });
   }, 2000);
+
+  function imageReload() {
+    var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
+    $("div.img-wrapper").html(img);
+  }
 })
