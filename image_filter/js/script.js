@@ -15,6 +15,8 @@ $(document).ready(function() {
     var newImageUrl = $("input.image-url").val();
     if (newImageUrl !== "") {
       imageSource = newImageUrl;
+    } else {
+      imageSource = "img/72H.jpg";
     }
     imageReload()
   });
