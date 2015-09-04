@@ -11,9 +11,10 @@ $(document).ready(function() {
     filterList.append(filterWrapper);
   });
 
-  $("button.load").click(function(e) {
+  $("select.image-source-list").change(function(e) {
     e.preventDefault();
-    var newImageUrl = $("input.image-url").val();
+    var selected = $("select option:selected")
+    var newImageUrl = selected.val();
     if (newImageUrl !== "") {
       imageSource = newImageUrl;
     } else {
