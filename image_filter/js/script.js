@@ -11,7 +11,8 @@ $(document).ready(function() {
     filterList.append(filterWrapper);
   });
 
-  $("button.load").click(function() {
+  $("button.load").click(function(e) {
+    e.preventDefault();
     var newImageUrl = $("input.image-url").val();
     if (newImageUrl !== "") {
       imageSource = newImageUrl;
