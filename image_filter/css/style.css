@@ -6,6 +6,7 @@ body {
   height: auto !important;
   width: auto !important;
   padding: 0;
+  text-align: center;
 }
 .modal-body > canvas {
   max-width: 100%;
