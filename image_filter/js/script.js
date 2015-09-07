@@ -50,18 +50,20 @@ $(document).ready(function() {
     addCropBox();
   });
 
-  setTimeout(function() {
+  // setTimeout(function() {
     $("a.filter-option").click(function() {
       imageReload()
       var option = $(this).children("img").attr("data-filter");
       $(".filter").attr("data-filter", option);
       $("#filter_name").text(option);
-      setTimeout(function() {
-        $(".filter").filterMe();
-      }, 2000)
-      addCropBox();
+      $(".filter").filterMe();
+      // addCropBox();
     })
-  }, 2000);
+  // }, 2000);
+
+  $("button.add-crop").click(function() {
+    addCropBox();
+  });
 
   $('[data-toggle="tooltip"]').tooltip();
 
