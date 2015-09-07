@@ -1,6 +1,6 @@
 $(document).ready(function() {
   imageSource = "img/72H.jpg";
-  var $image = $(".img-wrapper img");
+  $image = $(".img-wrapper .filter");
   var filterList = $("div.filter-list");
   var filters = ["Original"].concat(Object.keys($.filterMe.filters));
   $.each(filters, function(index, filter) {
@@ -36,11 +36,7 @@ $(document).ready(function() {
     });
   }, 2000);
 
-
-
-
-
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip();
 
   function imageReload() {
     var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
