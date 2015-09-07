@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // imageSource = "img/72H.jpg";
+  imageSource = "img/72H.jpg";
   var filterList = $("div.filter-list");
   var filters = ["Original"].concat(Object.keys($.filterMe.filters));
   $.each(filters, function(index, filter) {
@@ -27,6 +27,7 @@ $(document).ready(function() {
   setTimeout(function() {
     $("a.filter-option").click(function() {
       imageReload()
+      debugger
       var option = $(this).children("img").attr("data-filter");
       $(".filter").attr("data-filter", option);
       $("#filter_name").text(option);
