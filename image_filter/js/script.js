@@ -44,7 +44,7 @@ $(document).ready(function() {
 
   function imageReload() {
     var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
-    $("div.img-wrapper").html(img);
+    $("div.img-wrapper .row:first-child").html(img);
   }
 
   function addCropBox() {
