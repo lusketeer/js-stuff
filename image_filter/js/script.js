@@ -56,7 +56,9 @@ $(document).ready(function() {
       var option = $(this).children("img").attr("data-filter");
       $(".filter").attr("data-filter", option);
       $("#filter_name").text(option);
-      $(".filter").filterMe();
+      setTimeout(function() {
+        $(".filter").filterMe();
+      }, 2000)
       addCropBox();
     })
   }, 2000);
