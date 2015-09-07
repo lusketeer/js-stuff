@@ -5,7 +5,7 @@ $(document).ready(function() {
   $.each(filters, function(index, filter) {
     var sampleImage = $("<img>").attr({ "src": "img/sample.png", "data-filter": filter});
     sampleImage.filterMe();
-    var filterElement = $("<a>").attr("href", "javascript:void(0)").addClass("filter-option thumbnail").html(sampleImage);
+    var filterElement = $("<a>").attr({"href": "javascript:void(0)", "data-toggle": "tooltip", "data-placement": "left", "title": filter}).addClass("filter-option thumbnail").html(sampleImage);
     var filterWrapper = $("<div>").addClass("col-sm-4").html(filterElement);
     // var filterElement = $("<a>").addClass("filter-option btn btn-success col-sm-4").html(filter);
     filterList.append(filterWrapper);
@@ -34,6 +34,8 @@ $(document).ready(function() {
       $(".filter").filterMe();
     });
   }, 2000);
+  
+  $('[data-toggle="tooltip"]').tooltip()
 
   function imageReload() {
     var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
