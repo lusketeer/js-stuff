@@ -5,6 +5,7 @@ body {
 .modal-body {
   height: auto !important;
   width: auto !important;
+  padding: 0;
 }
 .modal-body > canvas {
   max-width: 100%;
