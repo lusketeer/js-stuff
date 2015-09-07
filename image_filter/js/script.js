@@ -1,6 +1,6 @@
 $(document).ready(function() {
   imageSource = "img/72H.jpg";
-  var $image = $(".img-wrapper img");
+  var $image = $(".img-wrapper .filter");
   var filterList = $("div.filter-list");
   var filters = ["Original"].concat(Object.keys($.filterMe.filters));
   $.each(filters, function(index, filter) {
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
   function imageReload() {
     var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
-    $("div.img-wrapper").html(img);
+    $("div.img-wrapper .row:first-child").html(img);
   }
 
   function addCropBox() {
