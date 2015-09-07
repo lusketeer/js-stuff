@@ -32,7 +32,7 @@ $(document).ready(function() {
       $(".filter").attr("data-filter", option);
       $("#filter_name").text(option);
       $(".filter").filterMe();
-      addCropBox();
+      // addCropBox();
     });
   }, 2000);
 
