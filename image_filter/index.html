@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link  href="css/cropper.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/cropper.min.js"></script>
     <script type="text/javascript" src="js/jquery.filterme.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <title>Image Filtering</title>
@@ -34,7 +36,16 @@
           <small class="pull-right">Filters</small>
         </h3>
         <div class="col-lg-7 img-wrapper">
-          <img src="img/72H.jpg" class="img-responsive filter" alt="" data-filter=""/>
+          <div class="row">
+            <img src="img/72H.jpg" class="img-responsive filter" alt="" data-filter=""/>
+          </div>
+          <div class="row">
+            <button class="btn btn-primary get-cropped-image" data-method="getCroppedCanvas">Crop</button>
+            <a href="#" target="_blank" class="cropped-image">Download</a>
+          </div>
+          <div class="row">
+            <div class="img-preview preview-lg"></div>
+          </div>
         </div>
         <div class="col-lg-5 filter-list">
           <!-- <a href="#" class="filter-option btn btn-success">Nashville</a> -->
