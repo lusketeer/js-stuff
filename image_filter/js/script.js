@@ -1,6 +1,6 @@
 $(document).ready(function() {
   imageSource = "img/72H.jpg";
-  $image = $(".img-wrapper .filter");
+  addCropBox();
   var filterList = $("div.filter-list");
   var filters = ["Original"].concat(Object.keys($.filterMe.filters));
   $.each(filters, function(index, filter) {
