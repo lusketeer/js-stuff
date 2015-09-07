@@ -44,6 +44,7 @@ $(document).ready(function() {
   }
 
   function addCropBox() {
+    $image = $(".img-wrapper .filter");
     $image.cropper({
       aspectRatio: NaN,
       preview: ".img-preview",
