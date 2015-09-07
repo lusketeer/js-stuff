@@ -39,17 +39,32 @@
           <div class="row">
             <img src="img/72H.jpg" class="img-responsive filter" alt="" data-filter=""/>
           </div>
+          <hr>
           <div class="row">
-            <button class="btn btn-success add-crop">Add Crop</button>
-            <button class="btn btn-primary get-cropped-image" data-method="getCroppedCanvas">Crop</button>
-            <a href="#" target="_blank" class="cropped-image">Download</a>
-          </div>
-          <div class="row">
-            <div class="img-preview preview-lg"></div>
+            <button class="btn btn-success add-crop-box">Add Crop Box</button>
+            <button class="btn btn-primary get-cropped-image" data-toggle="modal" data-target="#cropped_image">Crop</button>
           </div>
         </div>
         <div class="col-lg-5 filter-list">
           <!-- <a href="#" class="filter-option btn btn-success">Nashville</a> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="cropped_image" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Cropped Image</h4>
+          </div>
+          <div class="modal-body img-preview">
+            <!-- <div class="img-preview preview-lg img-responsive"></div> -->
+          </div>
+          <div class="modal-footer">
+            <a href="#" target="_blank" class="btn btn-primary cropped-image">Download</a>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>

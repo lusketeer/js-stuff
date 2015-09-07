@@ -1,3 +1,11 @@
 body {
   padding-top: 30px;
 }
+
+.modal-body {
+  height: auto !important;
+  width: auto !important;
+}
+.modal-body > canvas {
+  max-width: 100%;
+}

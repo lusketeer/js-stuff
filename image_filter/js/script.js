@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
   imageSource = "img/72H.jpg";
   addCropBox();
@@ -38,7 +36,7 @@ $(document).ready(function() {
     })
   // }, 2000);
 
-  $("button.add-crop").click(function() {
+  $("button.add-crop-box").click(function() {
     addCropBox();
   });
 
