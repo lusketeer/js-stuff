@@ -1,6 +1,6 @@
 function addCropBox() {
-  var image = $(".img-wrapper .filter");
-  image.cropper({
+  // var image = $(".img-wrapper .filter");
+  $(".img-wrapper .filter").cropper({
     aspectRatio: NaN,
     preview: ".img-preview",
     zoomable: false,
@@ -14,7 +14,7 @@ function addCropBox() {
       // $("#dataScaleX").val(e.scaleX);
       // $("#dataScaleY").val(e.scaleY);
       $(".get-cropped-image").click(function() {
-        var img = image.cropper("getCroppedCanvas");
+        var img = $(".img-wrapper .filter").cropper("getCroppedCanvas");
         $(".img-preview").html(img);
         $(".cropped-image").attr("href", img.toDataURL());
       });
@@ -47,6 +47,7 @@ $(document).ready(function() {
     }
 
     imageReload();
+    addCropBox();
   });
 
   setTimeout(function() {
@@ -56,8 +57,8 @@ $(document).ready(function() {
       $(".filter").attr("data-filter", option);
       $("#filter_name").text(option);
       $(".filter").filterMe();
-      // addCropBox();
-    });
+      addCropBox();
+    })
   }, 2000);
 
   $('[data-toggle="tooltip"]').tooltip();
