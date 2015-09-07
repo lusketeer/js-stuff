@@ -42,31 +42,31 @@ $(document).ready(function() {
 
   $('[data-toggle="tooltip"]').tooltip()
 
-  function imageReload() {
-    var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
-    $("div.img-wrapper .row:first-child").html(img);
-  }
-
-  function addCropBox() {
-    $image.cropper({
-      aspectRatio: NaN,
-      preview: ".img-preview",
-      zoomable: false,
-      crop: function(e) {
-        console.log(e);
-        // $("#dataX").val(Math.round(e.x));
-        // $("#dataY").val(Math.round(e.y));
-        // $("#dataHeight").val(Math.round(e.height));
-        // $("#dataWidth").val(Math.round(e.width));
-        // $("#dataRotate").val(e.rotate);
-        // $("#dataScaleX").val(e.scaleX);
-        // $("#dataScaleY").val(e.scaleY);
-        $(".get-cropped-image").click(function() {
-          var img = $image.cropper("getCroppedCanvas");
-          $(".img-preview").html(img);
-          $(".cropped-image").attr("href", img.toDataURL());
-        });
-      }
-    });
-  }
 })
+function imageReload() {
+  var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
+  $("div.img-wrapper .row:first-child").html(img);
+}
+
+function addCropBox() {
+  $image.cropper({
+    aspectRatio: NaN,
+    preview: ".img-preview",
+    zoomable: false,
+    crop: function(e) {
+      console.log(e);
+      // $("#dataX").val(Math.round(e.x));
+      // $("#dataY").val(Math.round(e.y));
+      // $("#dataHeight").val(Math.round(e.height));
+      // $("#dataWidth").val(Math.round(e.width));
+      // $("#dataRotate").val(e.rotate);
+      // $("#dataScaleX").val(e.scaleX);
+      // $("#dataScaleY").val(e.scaleY);
+      $(".get-cropped-image").click(function() {
+        var img = $image.cropper("getCroppedCanvas");
+        $(".img-preview").html(img);
+        $(".cropped-image").attr("href", img.toDataURL());
+      });
+    }
+  });
+}
