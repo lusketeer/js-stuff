@@ -1,5 +1,6 @@
 $(document).ready(function() {
   imageSource = "img/72H.jpg";
+  var $image = $(".img-wrapper img");
   var filterList = $("div.filter-list");
   var filters = ["Original"].concat(Object.keys($.filterMe.filters));
   $.each(filters, function(index, filter) {
@@ -27,36 +28,16 @@ $(document).ready(function() {
   setTimeout(function() {
     $("a.filter-option").click(function() {
       imageReload()
-      debugger
       var option = $(this).children("img").attr("data-filter");
       $(".filter").attr("data-filter", option);
       $("#filter_name").text(option);
       $(".filter").filterMe();
+      addCropBox();
     });
   }, 2000);
 
-  var $image = $(".img-wrapper img");
 
-  $image.cropper({
-    aspectRatio: NaN,
-    preview: ".img-preview",
-    zoomable: false,
-    crop: function(e) {
-      console.log(e);
-      // $("#dataX").val(Math.round(e.x));
-      // $("#dataY").val(Math.round(e.y));
-      // $("#dataHeight").val(Math.round(e.height));
-      // $("#dataWidth").val(Math.round(e.width));
-      // $("#dataRotate").val(e.rotate);
-      // $("#dataScaleX").val(e.scaleX);
-      // $("#dataScaleY").val(e.scaleY);
-      $(".get-cropped-image").click(function() {
-        var img = $image.cropper("getCroppedCanvas");
-        $(".img-preview").html(img);
-        $(".cropped-image").attr("href", img.toDataURL());
-      });
-    }
-  });
+
 
 
   $('[data-toggle="tooltip"]').tooltip()
@@ -64,5 +45,28 @@ $(document).ready(function() {
   function imageReload() {
     var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
     $("div.img-wrapper").html(img);
+  }
+
+  function addCropBox() {
+    $image.cropper({
+      aspectRatio: NaN,
+      preview: ".img-preview",
+      zoomable: false,
+      crop: function(e) {
+        console.log(e);
+        // $("#dataX").val(Math.round(e.x));
+        // $("#dataY").val(Math.round(e.y));
+        // $("#dataHeight").val(Math.round(e.height));
+        // $("#dataWidth").val(Math.round(e.width));
+        // $("#dataRotate").val(e.rotate);
+        // $("#dataScaleX").val(e.scaleX);
+        // $("#dataScaleY").val(e.scaleY);
+        $(".get-cropped-image").click(function() {
+          var img = $image.cropper("getCroppedCanvas");
+          $(".img-preview").html(img);
+          $(".cropped-image").attr("href", img.toDataURL());
+        });
+      }
+    });
   }
 })
