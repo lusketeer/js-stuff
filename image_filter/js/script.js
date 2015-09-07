@@ -1,26 +1,4 @@
-function addCropBox() {
-  // var image = $(".img-wrapper .filter");
-  $(".img-wrapper .filter").cropper({
-    aspectRatio: NaN,
-    preview: ".img-preview",
-    zoomable: false,
-    crop: function(e) {
-      console.log(e);
-      // $("#dataX").val(Math.round(e.x));
-      // $("#dataY").val(Math.round(e.y));
-      // $("#dataHeight").val(Math.round(e.height));
-      // $("#dataWidth").val(Math.round(e.width));
-      // $("#dataRotate").val(e.rotate);
-      // $("#dataScaleX").val(e.scaleX);
-      // $("#dataScaleY").val(e.scaleY);
-      $(".get-cropped-image").click(function() {
-        var img = $(".img-wrapper .filter").cropper("getCroppedCanvas");
-        $(".img-preview").html(img);
-        $(".cropped-image").attr("href", img.toDataURL());
-      });
-    }
-  });
-}
+
 
 $(document).ready(function() {
   imageSource = "img/72H.jpg";
@@ -32,7 +10,6 @@ $(document).ready(function() {
     sampleImage.filterMe();
     var filterElement = $("<a>").attr({"href": "javascript:void(0)", "data-toggle": "tooltip", "data-placement": "left", "title": filter}).addClass("filter-option thumbnail").html(sampleImage);
     var filterWrapper = $("<div>").addClass("col-sm-4").html(filterElement);
-    // var filterElement = $("<a>").addClass("filter-option btn btn-success col-sm-4").html(filter);
     filterList.append(filterWrapper);
   });
 
@@ -70,6 +47,22 @@ $(document).ready(function() {
   function imageReload() {
     var img = $("<img>").attr({"src": imageSource, "data-filter": ""}).addClass("img-responsive filter");
     $("div.img-wrapper .row:first-child").html(img);
+  }
+
+  function addCropBox() {
+    $(".cropped-image").attr("href", "javascript:void(0)");
+    $(".img-wrapper .filter").cropper({
+      aspectRatio: NaN,
+      preview: ".img-preview",
+      zoomable: false,
+      crop: function(e) {
+        $(".get-cropped-image").click(function() {
+          var img = $(".img-wrapper .filter").cropper("getCroppedCanvas");
+          $(".img-preview").html(img);
+          $(".cropped-image").attr("href", img.toDataURL());
+        });
+      }
+    });
   }
 
 
