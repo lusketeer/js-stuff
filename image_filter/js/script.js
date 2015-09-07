@@ -29,6 +29,7 @@ $(document).ready(function() {
       imageReload()
       var option = $(this).children("img").attr("data-filter");
       $(".filter").attr("data-filter", option);
+      $("#filter_name").text(option);
       $(".filter").filterMe();
     });
   }, 2000);
